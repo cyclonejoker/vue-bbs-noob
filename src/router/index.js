@@ -63,7 +63,42 @@ const router = new Router({
   ]
 },
 );
+<<<<<<< HEAD
 router.beforeEach((to, from, next) => {
+=======
+// router.beforeEach((to, from, next) => {
+
+//   if (getUsername())
+//   {
+//     if (to.path='/login'){
+//       next({path:'/'})
+//     } else {
+//       if (store.state.username.length===0){
+//         store.dispatch("get_userinfo").then(data=> {
+//             next();
+//           }
+//         ).catch(()=>{
+//           next({path:'/'})
+//         })
+//       }else{
+//         next()
+//       }
+//     }
+//   }else {
+//     if (to.matched.some(r => r.meta.requireLogin)) {
+//       Message({
+//         type: 'warning',
+//         showClose: true,
+//         message: '请先登录哦'
+//       })
+
+//     }
+//     else {
+//       next();
+//     }
+//   }
+// })
+>>>>>>> 已经测试完登录注册 以及baseHeader
   // if(to.meta.needLogin){
   //   if(store.state.username.length!==0){
   //     next();
@@ -77,6 +112,7 @@ router.beforeEach((to, from, next) => {
   //     next();
   //   }
   // }
+<<<<<<< HEAD
   if (getUsername())
   {
     if (to.path='/login'){
@@ -108,4 +144,6 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+=======
+>>>>>>> 已经测试完登录注册 以及baseHeader
 export default router

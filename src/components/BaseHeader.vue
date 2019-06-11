@@ -24,7 +24,11 @@
         <!--登录模块 false-->
         <el-col :span="4">
           <el-menu :router="true" menu-trigger="click" mode="horizontal" active-text-color="#5FB878">
+<<<<<<< HEAD
             <template v-if="!user.Login">
+=======
+            <template v-if="!isLogin">
+>>>>>>> 已经测试完登录注册 以及baseHeader
               <!--如果用户没有登录，则 显示登录注册-->
               <el-menu-item index="/login">
                 <el-button type="text">登录</el-button>
@@ -50,6 +54,7 @@
   import {getUsername}from"../store/userinfo"
     export default {
         name: "BaseHeader",
+<<<<<<< HEAD
       computed:{
           user() {
             let Login = this.$store.state.username.length != 0
@@ -57,6 +62,20 @@
             return Login;
           }
       },
+=======
+        watch:{
+        "$route":'checkLogin',
+        },
+        data(){
+            return {
+              isLogin:false
+            }
+       },
+       created(){
+          this.checkLogin();
+
+       },
+>>>>>>> 已经测试完登录注册 以及baseHeader
       methods:
         {
           logout(){
@@ -65,6 +84,25 @@
             this.$store.dispatch('remove_userinfo');
             console.log("操作后"+this.$store.state.username);
             alert("退出成功");
+<<<<<<< HEAD
+=======
+            this.reload;
+            that.$router.push({path:'/login'})
+
+          },
+          checkLogin(){
+            var object=localStorage.getItem("username");
+            if (object===null){
+              this.isLogin=false
+            }
+            else {
+              if (object.length !== 0) {
+                this.isLogin = true
+              } else {
+                this.isLogin=false
+              }
+            }
+>>>>>>> 已经测试完登录注册 以及baseHeader
           }
         }
     }

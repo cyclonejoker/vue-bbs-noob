@@ -160,8 +160,22 @@
                 Object.assign(that.posts,posts);
               }
             })
+<<<<<<< HEAD
 
           }
+=======
+            this.getComments()
+
+          },
+          getComments(){
+            var data={
+              postID:id
+            }
+
+            this.$axios.post()
+          }
+
+>>>>>>> 已经测试完登录注册 以及baseHeader
       }
     }
 </script>

@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div id="register" v-title data-title="注册">
+=======
+  <div id="register" >
+>>>>>>> 已经测试完登录注册 以及baseHeader
     <!--<video preload="auto" class="me-video-player" autoplay="autoplay" loop="loop">
           <source src="../../static/vedio/sea.mp4" type="video/mp4">
       </video>-->
@@ -8,12 +12,21 @@
       <h1>注册</h1>
 
       <el-form ref="userForm" :model="userForm" :rules="rules">
+<<<<<<< HEAD
         <el-form-item prop="userid">
           <el-input placeholder="用户名" v-model="userForm.userid"></el-input>
         </el-form-item>
 
         <el-form-item prop="username">
           <el-input placeholder="昵称" v-model="userForm.username"></el-input>
+=======
+        <el-form-item prop="userID">
+          <el-input placeholder="用户id" v-model="userForm.userID"></el-input>
+        </el-form-item>
+
+        <el-form-item prop="username">
+          <el-input placeholder="用户名" v-model="userForm.username"></el-input>
+>>>>>>> 已经测试完登录注册 以及baseHeader
         </el-form-item>
 
         <el-form-item prop="password">
@@ -43,12 +56,20 @@
       data(){
           return {
             userForm: {
+<<<<<<< HEAD
               userid: '',
+=======
+              userID: '',
+>>>>>>> 已经测试完登录注册 以及baseHeader
               username: '',
               password: ''
             },
             rules: {
+<<<<<<< HEAD
               userid: [
+=======
+              userID: [
+>>>>>>> 已经测试完登录注册 以及baseHeader
                 {required: true, message: '请输入用户名', trigger: 'blur'},
                 {max: 10, message: '不能大于10个字符', trigger: 'blur'}
               ],
@@ -67,11 +88,23 @@
           register(formName){
             this.$refs[formName].validate(valid=>{
               if (valid){
+<<<<<<< HEAD
+=======
+                  var temp=this.userForm;
+                  let that=this;
+>>>>>>> 已经测试完登录注册 以及baseHeader
                 this.$axios.post("user/register",this.userForm).then(function (res) {
                   if (res.data.code===0)
                   {
                     console.log("注册成功");
                     that.$message({message: '注册成功 快写文章吧', type: 'success', showClose: true});
+<<<<<<< HEAD
+=======
+                    var data={
+                          userID: temp.userID,
+                          username: temp.username
+                        }
+>>>>>>> 已经测试完登录注册 以及baseHeader
                     //save data to localstoreage.
                     //返回过来的数据有一个form 然后把这个userfrom 存到浏览器里
                     /*
@@ -79,18 +112,30 @@
                     username:''
                     }
                      */
+<<<<<<< HEAD
                     this.$store.dispatch('store_userinfo',response.data.form);
+=======
+                    this.$store.dispatch('store_userinfo',data);
+>>>>>>> 已经测试完登录注册 以及baseHeader
                     this.$router.push({path:'/'})
 
                   }
                   else {
+<<<<<<< HEAD
                     console.log("登录失败");
+=======
+                    console.log("注册失败");
+>>>>>>> 已经测试完登录注册 以及baseHeader
                   }
 
                 })
               }
               else {
+<<<<<<< HEAD
                 console.log("登录失败");
+=======
+                console.log("注册失败");
+>>>>>>> 已经测试完登录注册 以及baseHeader
               }
             })
           }

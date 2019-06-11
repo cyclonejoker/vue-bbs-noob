@@ -1,8 +1,13 @@
 <template>
   <scroll-page :loading="loading" :offset="offset" :no-data="noData" v-on:load="load">
+<<<<<<< HEAD
     <article-item v-for="p in posts" :key="p.id" v-bind="p" ></article-item>
   </scroll-page>
   <!--<scroll-page :></scroll-page>-->
+=======
+    <article-item v-for="a in articles" :key="a.postID" v-bind="a"></article-item>
+  </scroll-page>
+>>>>>>> 已经测试完登录注册 以及baseHeader
 </template>
 
 <script>
@@ -61,7 +66,11 @@
           pageSize: 5,
           pageNumber: 1,
         },
+<<<<<<< HEAD
         posts: []
+=======
+        articles: []
+>>>>>>> 已经测试完登录注册 以及baseHeader
       }
     },
     methods: {
@@ -71,6 +80,7 @@
       view(id) {
         this.$router.push({path: `/view/${id}`})
       },
+<<<<<<< HEAD
       getArticles() {
         let that = this;
         that.loading = true;
@@ -97,6 +107,49 @@
           that.$message({type: 'error', message: '文章加载失败!', showClose: true})
         }).finally(() => {
           that.loading = false});
+=======
+        getArticles(){
+          let that = this;
+          that.loading = true;
+          var params={
+            pageNumber:that.innerPage.pageNumber,
+            pageSize:that.innerPage.pageSize,
+            // tag:that.query.tag
+          }
+          console.log("请求的参数是"+params.pageNumber);
+          this.$axios.post('post/postList',params).then(function (response) {
+              let newPosts = response.data;
+              console.log("传入的参数是"+newPosts)
+              //这样写有一个bug，传过来的数据是[] 不是{}
+              // let newPosts={
+              //   postID:response.data.postID,
+              //   userID:response.data.userID,
+              //   username:response.data.username,
+              //   createTime:response.data.createTime,
+              //   title:response.data.title,
+              //   content:response.data.content,
+              //   star:response.data.star,
+              //   pageviews:response.data.pageviews,
+              //   commentCounts:response.data.commentCounts,
+              //   comments:response.data.comments,
+              //   tag:response.data.tag
+              //
+              // }
+
+
+              if (newPosts && newPosts.length > 0) {
+                that.innerPage.pageNumber += 1;
+                that.articles = that.articles.concat(newPosts)
+              } else {
+                that.noData = true;
+              }
+
+          }).catch(error=>{
+            that.$message({type: 'error', message: '文章加载失败!', showClose: true})
+          }).finally(() => {
+            that.loading = false});
+
+>>>>>>> 已经测试完登录注册 以及baseHeader
         // getArticles(that.query, that.innerPage).then(data => {
         //
         //   let newArticles = data.data
@@ -122,6 +175,10 @@
       'scroll-page': ScrollPage
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 已经测试完登录注册 以及baseHeader
   }
 </script>
 
