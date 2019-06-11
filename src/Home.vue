@@ -2,11 +2,7 @@
   <div id="home">
   <el-container>
     <el-header>
-<<<<<<< HEAD
-      <base-header></base-header>
-=======
       <base-header v-if="isRouterAlive"></base-header>
->>>>>>> 已经测试完登录注册 以及baseHeader
 
     </el-header>
     <el-main>
@@ -21,10 +17,6 @@
 
     export default {
         name: "Home",
-<<<<<<< HEAD
-      components: {
-        'base-header':BaseHeader}
-=======
         data(){
             return{
               isRouterAlive:true
@@ -38,7 +30,6 @@
       this.$nextTick(() => (this.isRouterAlive = true))
    }   
  }
->>>>>>> 已经测试完登录注册 以及baseHeader
 
     }
 </script>

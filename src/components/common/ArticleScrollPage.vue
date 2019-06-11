@@ -1,13 +1,7 @@
 <template>
   <scroll-page :loading="loading" :offset="offset" :no-data="noData" v-on:load="load">
-<<<<<<< HEAD
-    <article-item v-for="p in posts" :key="p.id" v-bind="p" ></article-item>
-  </scroll-page>
-  <!--<scroll-page :></scroll-page>-->
-=======
     <article-item v-for="a in articles" :key="a.postID" v-bind="a"></article-item>
   </scroll-page>
->>>>>>> 已经测试完登录注册 以及baseHeader
 </template>
 
 <script>
@@ -66,11 +60,7 @@
           pageSize: 5,
           pageNumber: 1,
         },
-<<<<<<< HEAD
-        posts: []
-=======
         articles: []
->>>>>>> 已经测试完登录注册 以及baseHeader
       }
     },
     methods: {
@@ -80,34 +70,6 @@
       view(id) {
         this.$router.push({path: `/view/${id}`})
       },
-<<<<<<< HEAD
-      getArticles() {
-        let that = this;
-        that.loading = true;
-        var  params={
-          pageNumber:that.innerPage.pageNumber,
-          pageSize:that.innerPage.pageSize,
-          tag:that.query.tag
-        }
-        this.$axios.post('post/postList',params).then(function (response) {
-              if (response.data.code===0 ) {
-                let newPosts = response.data.posts;
-                if (newPosts && newPosts.length > 0) {
-                  that.innerPage.pageNumber += 1;
-                  that.posts = that.articles.concat(newPosts)
-                } else {
-                  that.noData = true;
-                }
-              }
-              else {
-                alert("出现错误")
-              }
-
-        }).catch(error=>{
-          that.$message({type: 'error', message: '文章加载失败!', showClose: true})
-        }).finally(() => {
-          that.loading = false});
-=======
         getArticles(){
           let that = this;
           that.loading = true;
@@ -149,7 +111,6 @@
           }).finally(() => {
             that.loading = false});
 
->>>>>>> 已经测试完登录注册 以及baseHeader
         // getArticles(that.query, that.innerPage).then(data => {
         //
         //   let newArticles = data.data
@@ -175,10 +136,6 @@
       'scroll-page': ScrollPage
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 已经测试完登录注册 以及baseHeader
   }
 </script>
 
